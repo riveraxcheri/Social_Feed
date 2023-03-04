@@ -1,16 +1,18 @@
 button {
     color:black;
+    background-color: white;
     text-align: center;
     text-decoration: none;
     font-size: medium;
+    border-radius: 1em;
 }
 
 button:hover {
-    box-shadow: inset;
+    background-color:rgb(201, 201, 201)
 }
 
 .active{
-    color: green;
+    background-color: green;
 }
 
 .inactive{
