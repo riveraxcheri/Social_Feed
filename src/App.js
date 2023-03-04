@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import CreatePostForm from "./Components/CreatePostForm/CreatePostForm";
+import NavBar from "./Components/NavBar/NavBar";
+import PostList from "./Components/PostList/PostList";
+
 
 function App() {
+  const [entries, setEntries] = useState([
+    {
+      id: 1,
+      date: "2/25/2023",
+      name: "Cheri Rivera",
+      text: "This is my post.",
+      isLiked: false,
+      isDisliked: false,
+    },
+    {
+      id: 2,
+      date: "2/25/2023",
+      name: "name",
+      text: "This is my second post.",
+      isLiked: false,
+      isDisliked: false,
+    },
+  ]);
+
+  function addNewPost(entry){
+    let tempEntries = [...entries, entry];
+
+    setEntries(tempEntries);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      <CreatePostForm entries={entries} addNewPostProperty={addNewPost}/>
+      <PostList entries={entries} />
     </div>
   );
 }
